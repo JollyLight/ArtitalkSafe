@@ -1,8 +1,8 @@
 //此脚本由MHuiG - MiniValine写成，ChenYFan将其做少量修改制成，此脚本仅适用于Artitalk
 
 async function handleRequest(event) {
-  AppId = (function () { try { return APPID } catch (e) { return "" } })()
-  AppKey = (function () { try { return APPKEY } catch (e) { return "" } })()
+  AppId = (function () { try { return process.env.APPID } catch (e) { return "" } })()
+  AppKey = (function () { try { return process.env.APPKEY } catch (e) { return "" } })()
   if (AppId == "" || AppKey == "") { return new Response('Artitalk-Safe异常：您没有设定appid和appkey') }
   ServerDomain = (function () { try { return SERVERDOMAIN } catch (e) { return `${(AppId.substr(0, 8)).toLowerCase()}.api.lncldglobal.com` } })()
   atComment = (function () { try { return ATCOMMENT == "true" ? true : false } catch (e) { return true } })()
